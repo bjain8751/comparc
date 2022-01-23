@@ -7,13 +7,12 @@ using namespace std;
 int main() {
 
     struct timespec st, et;
-    long long int n=51,fib[51];
-    // n can be any interger
+    int n=51;
+    long long int fib,a=1,b=0;
     double totaltime;
 
     timespec_get(&st, TIME_UTC);
-    fib[0]=1;
-    fib[1]=1;
+    cout<<"0-1"<<endl;
     for (int i=1; i<n;i++){
         fib=a+b;
         cout<<i<<"-"<<fib<<endl;
