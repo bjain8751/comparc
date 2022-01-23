@@ -2,26 +2,26 @@
 #include <time.h>
 using namespace std;
 
-long long int fib(int n){
-    if(n==0 || n==1){
-        return 1;
-    }else{
-        return(fib(n-1)+fib(n-2));
-
-    } 
-}
 
  
 int main() {
 
     struct timespec st, et;
-    int n=51;
+    long long int n=51,fib[51];
     // n can be any interger
     double totaltime;
+
     timespec_get(&st, TIME_UTC);
-    for (int i=0; i<n;i++){
-        cout<<i<<" - "<<fib(i)<<" "<<endl;
+    fib[0]=1;
+    fib[1]=1;
+    cout<<"0-1"<<endl;
+    cout<<"1-1"<<endl;
+
+    for (int i=2; i<n;i++){
+        fib[i]=fib[i-1]+fib[i-2];
+        cout<<i<<"-"<<fib[i]<<endl;
     }
+
     timespec_get(&et, TIME_UTC);
   
     totaltime =(et.tv_sec - st.tv_sec);
